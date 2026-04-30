@@ -7,156 +7,280 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
+
+  <!-- Only the new two-column layout rules — everything else comes from style.css -->
+  <style>
+    .page-wrap {
+      max-width: 1020px;
+      padding: 0;
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      grid-template-rows: 1fr auto;
+      min-height: 100vh;
+    }
+
+    .sidebar {
+      grid-column: 1;
+      grid-row: 1 / -1;
+      padding: 52px 32px 40px 40px;
+      border-right: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 36px;
+      animation: fadeUp 0.55s cubic-bezier(0.4, 0, 0.2, 1) both;
+      animation-delay: 0.05s;
+    }
+
+    .main-content {
+      grid-column: 2;
+      padding: 52px 48px 60px 48px;
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+    }
+
+    footer {
+      grid-column: 2;
+      margin-top: 0;
+      padding: 20px 48px 28px 48px;
+    }
+
+    .sidebar header {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .sidebar header::before { display: none; }
+
+    .sidebar .name { font-size: 1.1rem; }
+    .sidebar .tagline { font-size: 0.78rem; margin-bottom: 0; }
+    .sidebar .links { flex-direction: column; gap: 4px; }
+    .sidebar .links a { font-size: 0.7rem; padding: 0.3rem 0.65rem; }
+
+    .sidebar-label {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-3);
+      margin-bottom: 8px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid var(--border-light);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .sidebar-label::before {
+      content: '';
+      display: inline-block;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .sidebar .edu-block { padding: 0.9rem 1rem; }
+
+    .sidebar .skill-grid { border: none; gap: 10px; }
+    .sidebar .skill-row {
+      display: flex;
+      flex-direction: column;
+      border-bottom: none;
+      background: none;
+      gap: 1px;
+    }
+    .sidebar .skill-row:hover { background: none; }
+    .sidebar .skill-key {
+      background: none;
+      border-right: none;
+      padding: 0;
+      font-size: 0.62rem;
+      color: var(--ink-3);
+    }
+    .sidebar .skill-val {
+      padding: 0;
+      font-size: 0.75rem;
+      color: var(--ink-2);
+    }
+
+    @media (max-width: 720px) {
+      .page-wrap { grid-template-columns: 1fr; }
+      .sidebar {
+        position: static;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+        padding: 32px 24px;
+        grid-column: 1;
+        grid-row: auto;
+      }
+      .main-content { padding: 32px 24px 48px; grid-column: 1; }
+      footer { grid-column: 1; padding: 20px 24px 32px; }
+      .sidebar .links { flex-direction: row; flex-wrap: wrap; }
+    }
+  </style>
 </head>
 <body>
 
   <div class="page-wrap">
 
-    <header>
-      <h1 class="name">Connor Leberg</h1>
-      <p class="tagline">
-        CS student at UW–Milwaukee (May 2026) building full-stack and mobile apps.
-        Comfortable from the sprint room to the 48-hour game jam.
-      </p>
-      <nav class="links">
-        <a href="mailto:connorleberg@gmail.com"><span>connorleberg@gmail.com</span></a>
-        <a href="https://github.com/ConnorLeberg" target="_blank" rel="noopener"><span>GitHub</span></a>
-        <a href="tel:4142420698"><span>(414) 242-0698</span></a>
-        <a href="Connor_Leberg_Resume.pdf"><span>Resume ↓</span></a>
-      </nav>
-    </header>
+    <aside class="sidebar">
 
-    <!-- Education -->
-    <section>
-      <p class="section-label">Education</p>
-      <div class="edu-block">
-        <div class="edu-row">
-          <span class="edu-title">B.S. Computer Science</span>
-          <span class="edu-date">Expected May 2026</span>
-        </div>
-        <p class="edu-sub">University of Wisconsin – Milwaukee &nbsp;·&nbsp; GPA 3.75 / 4.0 &nbsp;·&nbsp; Dean's List × 5</p>
-        <p class="edu-courses">Data Structures &amp; Algorithms &nbsp;·&nbsp; Operating Systems &nbsp;·&nbsp; Machine Learning &nbsp;·&nbsp; Software Engineering</p>
-      </div>
-    </section>
+      <header>
+        <h1 class="name">Connor Leberg</h1>
+        <p class="tagline" style="margin-top: 0.6rem;">
+          CS student at UW–Milwaukee (May 2026) building full-stack and mobile apps.
+          Comfortable from the sprint room to the 48-hour game jam.
+        </p>
+      </header>
 
-    <!-- Skills -->
-    <section>
-      <p class="section-label">Technical Skills</p>
-      <div class="skill-grid">
-        <div class="skill-row">
-          <span class="skill-key">Languages</span>
-          <span class="skill-val">Python, Java, JavaScript / TypeScript, C, C#, HTML / CSS</span>
-        </div>
-        <div class="skill-row">
-          <span class="skill-key">Frameworks</span>
-          <span class="skill-val">React, React Native, Node.js, Google Maps API</span>
-        </div>
-        <div class="skill-row">
-          <span class="skill-key">Tools</span>
-          <span class="skill-val">Git, Docker, Linux, PostgreSQL, Jira, VS Code</span>
-        </div>
-        <div class="skill-row">
-          <span class="skill-key">Practices</span>
-          <span class="skill-val">Agile / Scrum, OOP, CI/CD, System Design, Sprint Planning</span>
-        </div>
-        <div class="skill-row">
-          <span class="skill-key">Game Dev</span>
-          <span class="skill-val">Unity (C#), Godot, game loop architecture, UI systems</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- Projects -->
-    <section>
-      <p class="section-label">Projects</p>
-
-      <div class="item">
-        <div class="item-header">
-          <span class="item-title">
-            Campus Resource Navigator
-            <span class="role">Senior Capstone · Team of 5</span>
-          </span>
-          <span class="item-date">Sep 2025 – May 2026</span>
-        </div>
-        <ul>
-          <li>Production-grade React Native mobile app with OAuth authentication and real-time campus navigation via Google Maps, aimed at serving the full UWM student body.</li>
-          <li>Owned frontend architecture, component structure, styling, and Maps integration across a full academic year of Agile sprints.</li>
-        </ul>
-        <figure class="item-screenshot">
-          <img src="images/Screenshot 2026-04-30 141649.png" alt="Campus Resource Navigator screenshot" />
-          <figcaption>Campus Resource Navigator · React Native</figcaption>
-        </figure>
+      <div>
+        <p class="sidebar-label">Contact</p>
+        <nav class="links">
+          <a href="mailto:connorleberg@gmail.com"><span>connorleberg@gmail.com</span></a>
+          <a href="https://github.com/ConnorLeberg" target="_blank" rel="noopener"><span>GitHub</span></a>
+          <a href="tel:4142420698"><span>(414) 242-0698</span></a>
+          <a href="Connor_Leberg_Resume.pdf"><span>Resume ↓</span></a>
+        </nav>
       </div>
 
-      <div class="item">
-        <div class="item-header">
-          <span class="item-title">
-            TA Assignment Website
-            <span class="role">Coursework</span>
-          </span>
-          <span class="item-date">Mar – May 2025</span>
+      <div>
+        <p class="sidebar-label">Education</p>
+        <div class="edu-block">
+          <div class="edu-row">
+            <span class="edu-title">B.S. Computer Science</span>
+            <span class="edu-date">May 2026</span>
+          </div>
+          <p class="edu-sub">UW–Milwaukee &nbsp;·&nbsp; GPA 3.75 &nbsp;·&nbsp; Dean's List × 5</p>
+          <p class="edu-courses">Data Structures · OS · ML · Software Eng.</p>
         </div>
-        <ul>
-          <li>Designed and shipped a faculty-facing TA scheduling web app — full HTML/CSS frontend integrated with a backend database for live queries, form submissions, and persistent storage.</li>
-        </ul>
-        <figure class="item-screenshot">
-          <!-- Replace the placeholder div below with:
-               <img src="images/ta-assignment.png" alt="TA Assignment Website screenshot" />
-               Once you have a screenshot, drop it in an /images folder next to index.html -->
-          <div class="placeholder">ta-assignment.png</div>
-          <figcaption>TA Assignment Website · HTML / CSS / PostgreSQL</figcaption>
-        </figure>
       </div>
 
-      <div class="item">
-        <div class="item-header">
-          <span class="item-title">
-            Global Game Jam
-            <span class="role">Independent · Team of 3</span>
-          </span>
-          <span class="item-date">2025 &amp; 2026</span>
+      <div>
+        <p class="sidebar-label">Skills</p>
+        <div class="skill-grid">
+          <div class="skill-row">
+            <span class="skill-key">Languages</span>
+            <span class="skill-val">Python, Java, JS / TS, C, C#, HTML / CSS</span>
+          </div>
+          <div class="skill-row">
+            <span class="skill-key">Frameworks</span>
+            <span class="skill-val">React, React Native, Node.js, Google Maps API</span>
+          </div>
+          <div class="skill-row">
+            <span class="skill-key">Tools</span>
+            <span class="skill-val">Git, Docker, Linux, PostgreSQL, Jira, VS Code</span>
+          </div>
+          <div class="skill-row">
+            <span class="skill-key">Practices</span>
+            <span class="skill-val">Agile / Scrum, OOP, CI/CD, System Design</span>
+          </div>
+          <div class="skill-row">
+            <span class="skill-key">Game Dev</span>
+            <span class="skill-val">Unity (C#), Godot, game loop architecture</span>
+          </div>
         </div>
-        <ul>
-          <li>Shipped playable Unity (C#) games in back-to-back 48-hour competitions — owned gameplay logic, UI systems, and game state management end-to-end each year.</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- Experience -->
-    <section>
-      <p class="section-label">Experience</p>
-
-      <div class="item">
-        <div class="item-header">
-          <span class="item-title">Front of House Manager</span>
-          <span class="item-date">Mar 2019 – Jan 2022</span>
-        </div>
-        <p class="item-sub">Chick-fil-A · Oak Creek, WI</p>
-        <ul>
-          <li>Led teams of up to 20 during peak service, coordinating roles in real time and resolving operational issues on the fly.</li>
-          <li>Trained staff on updated workflows; co-designed process improvements that cut labor costs by 18%.</li>
-        </ul>
       </div>
 
-      <div class="item">
-        <div class="item-header">
-          <span class="item-title">Package Sorter</span>
-          <span class="item-date">Oct 2023 – Oct 2024</span>
+    </aside>
+
+    <main class="main-content">
+
+      <section>
+        <p class="section-label">Projects</p>
+
+        <div class="item">
+          <div class="item-header">
+            <span class="item-title">
+              Campus Resource Navigator
+              <span class="role">Senior Capstone · Team of 5</span>
+            </span>
+            <span class="item-date">Sep 2025 – May 2026</span>
+          </div>
+          <ul>
+            <li>Production-grade React Native mobile app with OAuth authentication and real-time campus navigation via Google Maps, aimed at serving the full UWM student body.</li>
+            <li>Owned frontend architecture, component structure, styling, and Maps integration across a full academic year of Agile sprints.</li>
+          </ul>
+          <figure class="item-screenshot">
+            <img src="images/Screenshot 2026-04-30 141649.png" alt="Campus Resource Navigator screenshot" />
+            <figcaption>Campus Resource Navigator · React Native</figcaption>
+          </figure>
         </div>
-        <p class="item-sub">UPS · Oak Creek, WI</p>
-        <ul>
-          <li>Maintained accuracy in a high-volume logistics environment under constant time pressure.</li>
-          <li>Partnered with management to redesign software training workflows, contributing to measurably faster in-facility routing.</li>
-        </ul>
-      </div>
-    </section>
+
+        <div class="item">
+          <div class="item-header">
+            <span class="item-title">
+              TA Assignment Website
+              <span class="role">Coursework</span>
+            </span>
+            <span class="item-date">Mar – May 2025</span>
+          </div>
+          <ul>
+            <li>Designed and shipped a faculty-facing TA scheduling web app — full HTML/CSS frontend integrated with a backend database for live queries, form submissions, and persistent storage.</li>
+          </ul>
+          <figure class="item-screenshot">
+            <div class="placeholder">ta-assignment.png</div>
+            <figcaption>TA Assignment Website · HTML / CSS / PostgreSQL</figcaption>
+          </figure>
+        </div>
+
+        <div class="item">
+          <div class="item-header">
+            <span class="item-title">
+              Global Game Jam
+              <span class="role">Independent · Team of 3</span>
+            </span>
+            <span class="item-date">2025 &amp; 2026</span>
+          </div>
+          <ul>
+            <li>Shipped playable Unity (C#) games in back-to-back 48-hour competitions — owned gameplay logic, UI systems, and game state management end-to-end each year.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <p class="section-label">Experience</p>
+
+        <div class="item">
+          <div class="item-header">
+            <span class="item-title">Front of House Manager</span>
+            <span class="item-date">Mar 2019 – Jan 2022</span>
+          </div>
+          <p class="item-sub">Chick-fil-A · Oak Creek, WI</p>
+          <ul>
+            <li>Led teams of up to 20 during peak service, coordinating roles in real time and resolving operational issues on the fly.</li>
+            <li>Trained staff on updated workflows; co-designed process improvements that cut labor costs by 18%.</li>
+          </ul>
+        </div>
+
+        <div class="item">
+          <div class="item-header">
+            <span class="item-title">Package Sorter</span>
+            <span class="item-date">Oct 2023 – Oct 2024</span>
+          </div>
+          <p class="item-sub">UPS · Oak Creek, WI</p>
+          <ul>
+            <li>Maintained accuracy in a high-volume logistics environment under constant time pressure.</li>
+            <li>Partnered with management to redesign software training workflows, contributing to measurably faster in-facility routing.</li>
+          </ul>
+        </div>
+      </section>
+
+    </main>
 
     <footer>
       <span>Milwaukee, WI</span>
       <span>Connor Leberg &nbsp;·&nbsp; <a href="https://github.com/ConnorLeberg" target="_blank" rel="noopener">github.com/ConnorLeberg</a></span>
     </footer>
 
-  </div><!-- /.page-wrap -->
+  </div>
 
 </body>
 </html>

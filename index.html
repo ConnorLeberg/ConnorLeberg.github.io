@@ -5,305 +5,147 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Connor Leberg</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --bg: #f5f4f0;
-      --surface: #eeede8;
-      --ink: #1a1a18;
-      --ink-2: #4a4a45;
-      --ink-3: #8a8a82;
-      --accent: #2a5c3f;
-      --accent-light: #e0ede4;
-      --border: #d4d3cd;
-      --mono: 'IBM Plex Mono', monospace;
-      --sans: 'IBM Plex Sans', sans-serif;
-    }
-
-    body {
-      background: var(--bg);
-      color: var(--ink);
-      font-family: var(--sans);
-      font-weight: 300;
-      font-size: 15px;
-      line-height: 1.75;
-      max-width: 680px;
-      margin: 0 auto;
-      padding: 4rem 2rem 6rem;
-    }
-
-    /* ── Header ── */
-    header { margin-bottom: 3rem; }
-
-    .name {
-      font-family: var(--mono);
-      font-size: clamp(1.6rem, 5vw, 2.2rem);
-      font-weight: 500;
-      letter-spacing: -0.02em;
-      color: var(--ink);
-      margin-bottom: 0.75rem;
-    }
-
-    .tagline {
-      color: var(--ink-2);
-      font-size: 0.95rem;
-      margin-bottom: 1.5rem;
-      max-width: 520px;
-    }
-
-    .links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-    }
-
-    .links a {
-      font-family: var(--mono);
-      font-size: 0.78rem;
-      color: var(--accent);
-      text-decoration: none;
-      background: var(--accent-light);
-      padding: 0.3rem 0.75rem;
-      border-radius: 2px;
-      transition: background 0.15s, color 0.15s;
-    }
-    .links a:hover { background: var(--accent); color: #fff; }
-
-    /* ── Section ── */
-    section { margin-bottom: 2.75rem; }
-
-    .section-label {
-      font-family: var(--mono);
-      font-size: 0.7rem;
-      font-weight: 500;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--ink-3);
-      margin-bottom: 1rem;
-      padding-bottom: 0.4rem;
-      border-bottom: 1px solid var(--border);
-    }
-
-    /* ── Education ── */
-    .edu-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      flex-wrap: wrap;
-      gap: 0.25rem;
-    }
-    .edu-title { font-weight: 500; color: var(--ink); }
-    .edu-date { font-family: var(--mono); font-size: 0.78rem; color: var(--ink-3); }
-    .edu-sub { font-size: 0.88rem; color: var(--ink-2); margin-top: 0.2rem; }
-    .edu-courses { font-size: 0.85rem; color: var(--ink-3); margin-top: 0.25rem; }
-
-    /* ── Skills ── */
-    .skill-grid {
-      display: grid;
-      gap: 0.5rem;
-    }
-    .skill-row {
-      display: grid;
-      grid-template-columns: 160px 1fr;
-      gap: 0.75rem;
-      align-items: baseline;
-      font-size: 0.88rem;
-    }
-    .skill-key {
-      font-family: var(--mono);
-      font-size: 0.75rem;
-      color: var(--ink-3);
-    }
-    .skill-val { color: var(--ink-2); }
-
-    /* ── Projects & Experience ── */
-    .item { margin-bottom: 1.75rem; }
-    .item:last-child { margin-bottom: 0; }
-
-    .item-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      flex-wrap: wrap;
-      gap: 0.25rem;
-      margin-bottom: 0.15rem;
-    }
-
-    .item-title {
-      font-weight: 500;
-      color: var(--ink);
-      font-size: 0.95rem;
-    }
-    .item-title .role {
-      font-family: var(--mono);
-      font-size: 0.75rem;
-      color: var(--ink-3);
-      font-weight: 400;
-      margin-left: 0.4rem;
-    }
-
-    .item-date {
-      font-family: var(--mono);
-      font-size: 0.75rem;
-      color: var(--ink-3);
-      white-space: nowrap;
-    }
-
-    .item-sub {
-      font-size: 0.82rem;
-      color: var(--ink-3);
-      margin-bottom: 0.5rem;
-    }
-
-    .item ul {
-      padding-left: 1.1rem;
-      color: var(--ink-2);
-      font-size: 0.88rem;
-    }
-    .item li { margin-bottom: 0.2rem; }
-    .item li:last-child { margin-bottom: 0; }
-
-    /* ── Footer ── */
-    footer {
-      margin-top: 4rem;
-      padding-top: 1.5rem;
-      border-top: 1px solid var(--border);
-      font-family: var(--mono);
-      font-size: 0.72rem;
-      color: var(--ink-3);
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-    }
-
-    @media (max-width: 480px) {
-      .skill-row { grid-template-columns: 1fr; gap: 0.1rem; }
-      .skill-key::after { content: ':'; }
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <header>
-    <h1 class="name">Connor Leberg</h1>
-    <p class="tagline">
-      CS student at UW–Milwaukee (May 2026) building full-stack and mobile apps.
-      Comfortable from the sprint room to the 48-hour game jam.
-    </p>
-    <nav class="links">
-      <a href="mailto:connorleberg@gmail.com">connorleberg@gmail.com</a>
-      <a href="https://github.com/ConnorLeberg" target="_blank" rel="noopener">GitHub</a>
-      <a href="tel:4142420698">(414) 242-0698</a>
-      <a href="Connor_Leberg_Resume.pdf">Resume</a>
-    </nav>
-  </header>
+  <div class="page-wrap">
 
-  <section>
-    <p class="section-label">Education</p>
-    <div class="edu-row">
-      <span class="edu-title">B.S. Computer Science</span>
-      <span class="edu-date">Expected May 2026</span>
-    </div>
-    <p class="edu-sub">University of Wisconsin – Milwaukee &nbsp;·&nbsp; GPA 3.75 / 4.0 &nbsp;·&nbsp; Dean's List × 5</p>
-    <p class="edu-courses">Data Structures &amp; Algorithms · Operating Systems · Machine Learning · Software Engineering</p>
-  </section>
+    <header>
+      <h1 class="name">Connor Leberg</h1>
+      <p class="tagline">
+        CS student at UW–Milwaukee (May 2026) building full-stack and mobile apps.
+        Comfortable from the sprint room to the 48-hour game jam.
+      </p>
+      <nav class="links">
+        <a href="mailto:connorleberg@gmail.com"><span>connorleberg@gmail.com</span></a>
+        <a href="https://github.com/ConnorLeberg" target="_blank" rel="noopener"><span>GitHub</span></a>
+        <a href="tel:4142420698"><span>(414) 242-0698</span></a>
+        <a href="Connor_Leberg_Resume.pdf"><span>Resume ↓</span></a>
+      </nav>
+    </header>
 
-  <section>
-    <p class="section-label">Technical Skills</p>
-    <div class="skill-grid">
-      <div class="skill-row">
-        <span class="skill-key">Languages</span>
-        <span class="skill-val">Python, Java, JavaScript / TypeScript, C, C#, HTML / CSS</span>
+    <!-- Education -->
+    <section>
+      <p class="section-label">Education</p>
+      <div class="edu-block">
+        <div class="edu-row">
+          <span class="edu-title">B.S. Computer Science</span>
+          <span class="edu-date">Expected May 2026</span>
+        </div>
+        <p class="edu-sub">University of Wisconsin – Milwaukee &nbsp;·&nbsp; GPA 3.75 / 4.0 &nbsp;·&nbsp; Dean's List × 5</p>
+        <p class="edu-courses">Data Structures &amp; Algorithms &nbsp;·&nbsp; Operating Systems &nbsp;·&nbsp; Machine Learning &nbsp;·&nbsp; Software Engineering</p>
       </div>
-      <div class="skill-row">
-        <span class="skill-key">Frameworks</span>
-        <span class="skill-val">React, React Native, Node.js, Google Maps API</span>
-      </div>
-      <div class="skill-row">
-        <span class="skill-key">Tools</span>
-        <span class="skill-val">Git, Docker, Linux, PostgreSQL, Jira, VS Code</span>
-      </div>
-      <div class="skill-row">
-        <span class="skill-key">Practices</span>
-        <span class="skill-val">Agile / Scrum, OOP, CI/CD, System Design, Sprint Planning</span>
-      </div>
-      <div class="skill-row">
-        <span class="skill-key">Game Dev</span>
-        <span class="skill-val">Unity (C#), Godot, game loop architecture, UI systems</span>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <section>
-    <p class="section-label">Projects</p>
-
-    <div class="item">
-      <div class="item-header">
-        <span class="item-title">Campus Resource Navigator <span class="role">Senior Capstone · Team of 5</span></span>
-        <span class="item-date">Sep 2025 – May 2026</span>
+    <!-- Skills -->
+    <section>
+      <p class="section-label">Technical Skills</p>
+      <div class="skill-grid">
+        <div class="skill-row">
+          <span class="skill-key">Languages</span>
+          <span class="skill-val">Python, Java, JavaScript / TypeScript, C, C#, HTML / CSS</span>
+        </div>
+        <div class="skill-row">
+          <span class="skill-key">Frameworks</span>
+          <span class="skill-val">React, React Native, Node.js, Google Maps API</span>
+        </div>
+        <div class="skill-row">
+          <span class="skill-key">Tools</span>
+          <span class="skill-val">Git, Docker, Linux, PostgreSQL, Jira, VS Code</span>
+        </div>
+        <div class="skill-row">
+          <span class="skill-key">Practices</span>
+          <span class="skill-val">Agile / Scrum, OOP, CI/CD, System Design, Sprint Planning</span>
+        </div>
+        <div class="skill-row">
+          <span class="skill-key">Game Dev</span>
+          <span class="skill-val">Unity (C#), Godot, game loop architecture, UI systems</span>
+        </div>
       </div>
-      <ul>
-        <li>Production-grade React Native mobile app with OAuth authentication and real-time campus navigation via Google Maps, serving the full UWM student body.</li>
-        <li>Owned frontend architecture, component structure, styling, and Maps integration across a full academic year of Agile sprints.</li>
-      </ul>
-    </div>
+    </section>
 
-    <div class="item">
-      <div class="item-header">
-        <span class="item-title">TA Assignment Website <span class="role">Coursework</span></span>
-        <span class="item-date">Mar – May 2025</span>
+    <!-- Projects -->
+    <section>
+      <p class="section-label">Projects</p>
+
+      <div class="item">
+        <div class="item-header">
+          <span class="item-title">
+            Campus Resource Navigator
+            <span class="role">Senior Capstone · Team of 5</span>
+          </span>
+          <span class="item-date">Sep 2025 – May 2026</span>
+        </div>
+        <ul>
+          <li>Production-grade React Native mobile app with OAuth authentication and real-time campus navigation via Google Maps, serving the full UWM student body.</li>
+          <li>Owned frontend architecture, component structure, styling, and Maps integration across a full academic year of Agile sprints.</li>
+        </ul>
       </div>
-      <ul>
-        <li>Designed and shipped a faculty-facing TA scheduling web app — full HTML/CSS frontend integrated with a backend database for live queries, form submissions, and persistent storage.</li>
-      </ul>
-    </div>
 
-    <div class="item">
-      <div class="item-header">
-        <span class="item-title">Global Game Jam <span class="role">Independent · Team of 3</span></span>
-        <span class="item-date">2025 &amp; 2026</span>
+      <div class="item">
+        <div class="item-header">
+          <span class="item-title">
+            TA Assignment Website
+            <span class="role">Coursework</span>
+          </span>
+          <span class="item-date">Mar – May 2025</span>
+        </div>
+        <ul>
+          <li>Designed and shipped a faculty-facing TA scheduling web app — full HTML/CSS frontend integrated with a backend database for live queries, form submissions, and persistent storage.</li>
+        </ul>
       </div>
-      <ul>
-        <li>Shipped playable Unity (C#) games in back-to-back 48-hour competitions — owned gameplay logic, UI systems, and game state management end-to-end each year.</li>
-      </ul>
-    </div>
-  </section>
 
-  <section>
-    <p class="section-label">Experience</p>
-
-    <div class="item">
-      <div class="item-header">
-        <span class="item-title">Front of House Manager</span>
-        <span class="item-date">Mar 2019 – Jan 2022</span>
+      <div class="item">
+        <div class="item-header">
+          <span class="item-title">
+            Global Game Jam
+            <span class="role">Independent · Team of 3</span>
+          </span>
+          <span class="item-date">2025 &amp; 2026</span>
+        </div>
+        <ul>
+          <li>Shipped playable Unity (C#) games in back-to-back 48-hour competitions — owned gameplay logic, UI systems, and game state management end-to-end each year.</li>
+        </ul>
       </div>
-      <p class="item-sub">Chick-fil-A · Oak Creek, WI</p>
-      <ul>
-        <li>Led teams of up to 20 during peak service, coordinating roles in real time and resolving operational issues on the fly.</li>
-        <li>Trained staff on updated workflows; co-designed process improvements that cut labor costs by 18%.</li>
-      </ul>
-    </div>
+    </section>
 
-    <div class="item">
-      <div class="item-header">
-        <span class="item-title">Package Sorter</span>
-        <span class="item-date">Oct 2023 – Oct 2024</span>
+    <!-- Experience -->
+    <section>
+      <p class="section-label">Experience</p>
+
+      <div class="item">
+        <div class="item-header">
+          <span class="item-title">Front of House Manager</span>
+          <span class="item-date">Mar 2019 – Jan 2022</span>
+        </div>
+        <p class="item-sub">Chick-fil-A · Oak Creek, WI</p>
+        <ul>
+          <li>Led teams of up to 20 during peak service, coordinating roles in real time and resolving operational issues on the fly.</li>
+          <li>Trained staff on updated workflows; co-designed process improvements that cut labor costs by 18%.</li>
+        </ul>
       </div>
-      <p class="item-sub">UPS · Oak Creek, WI</p>
-      <ul>
-        <li>Maintained accuracy in a high-volume logistics environment under constant time pressure.</li>
-        <li>Partnered with management to redesign software training workflows, contributing to measurably faster in-facility routing.</li>
-      </ul>
-    </div>
-  </section>
 
-  <footer>
-    <span>Milwaukee, WI</span>
-    <span>connor leberg · <a href="https://github.com/ConnorLeberg" style="color:inherit;" target="_blank" rel="noopener">github.com/ConnorLeberg</a></span>
-  </footer>
+      <div class="item">
+        <div class="item-header">
+          <span class="item-title">Package Sorter</span>
+          <span class="item-date">Oct 2023 – Oct 2024</span>
+        </div>
+        <p class="item-sub">UPS · Oak Creek, WI</p>
+        <ul>
+          <li>Maintained accuracy in a high-volume logistics environment under constant time pressure.</li>
+          <li>Partnered with management to redesign software training workflows, contributing to measurably faster in-facility routing.</li>
+        </ul>
+      </div>
+    </section>
+
+    <footer>
+      <span>Milwaukee, WI</span>
+      <span>Connor Leberg &nbsp;·&nbsp; <a href="https://github.com/ConnorLeberg" target="_blank" rel="noopener">github.com/ConnorLeberg</a></span>
+    </footer>
+
+  </div><!-- /.page-wrap -->
 
 </body>
 </html>

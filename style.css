@@ -459,9 +459,13 @@ section {
   width: 100%;
 }
 
+.item-screenshot--web {
+  flex-direction: column;
+}
+
 .item-screenshot--web img {
   max-width: 100%;
-  flex: 1 1 45%;
+  width: 100%;
 }
 
 /* ─────────────────────────────────────
